@@ -13,10 +13,10 @@ libmodules.a: string_fxn.o array_fxn.o
 main.o: main.cpp string_fxn.h array_fxn.h
 	$(CC) -c main.cpp
 
-string_ops.o: string_fxn.cpp string_fxn.h
+string_fxn.o: string_fxn.cpp string_fxn.h
 	$(CC) -c string_fxn.cpp
 
-numeric_ops.o: array_fxn.cpp array_fxn.h
+array_fxn.o: array_fxn.cpp array_fxn.h
 	$(CC) -c array_fxn.cpp
 
 clean:
