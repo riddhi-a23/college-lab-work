@@ -1,134 +1,3 @@
-./List
-./List
-./List
-vi List.c
-ls
-rm LinkedList
-rm LinkedList.c 
-ls
-./List
-ls
-ls
-vi Ques1.c
-vi List.c
-ls
-vi Ques1.c
-./a.out
-gcc Ques1.c 
-./a.out
-vi List.c
-vi Ques1.c
-vi List.c
-./List
-ls
-vi List.c
-./List
-ls
-ls
-mkdir BST
-cd BST
-vi BST.c
-ls
-gcc BST.c 
-./a.out
-gcc BST.c 
-vi BST.c
-cd ..
-ls
-LinkedList/
-cd LinkedList/
-ls
-vi List.c
-./List
-vi List.c
-ls
-vi List.c
-./List
-cd ..
-ls
-BST/
-cd BST/
-ls
-vi BST.c
-vi BST.c
-gcc BST.c
-vi BST.c
-gcc BST.c
-./a.out
-ls
-./a.out 
-vi BST.c
-gcc BST.c
-./a.out 
-vi BST.c
-ls
-./a.out
-clear 
-exit 
-clear 
-ls 
-cd BST/
-ls
-vim BST.c 
-gcc BST.c 
-vim BST.c 
-ls -a
-rm .BST.c.swp 
-clear 
-ls 
-vim BST.c 
-gcc BST.c 
-vim BST.c 
-gcc BST.c 
-vim BST.c 
-gcc BST.c 
-vim BST.c 
-gcc BST.c 
-cat BST.c 
-clear 
-ls
-cd LinkedList/
-ls
-cd ..
-cd BST/
-ls
-vi BST.c 
-gcc BST.c 
-./a.out
-ls
-vi BST.c
-vi BST.c
-gcc BST.c 
-./a.out
-vi BST.c 
-ls
-vi BST.c 
-gcc BST.c 
-vi BST.c 
-gcc BST.c 
-./a.out
-ls
-./a.out
-ls
-vi BST.c 
-cat BST.c 
-vi BST.c 
-ls
-cd BST
-ls
-vi BSTT.c
-gcc BSTT.c
-./a.out
-ls
-rm BST.c
-ls
-ls
-vi BSTT.c
-vi BSTT.c
-cd ..
-exit
-ls
-exit
 ls
 vi Sorting.c
 ./a.out
@@ -498,3 +367,134 @@ cd ..
 cd Assignment2
 ls
 cat Ques1.c
+ls
+cd Semester4/
+ls
+cd ProgrammingLab/
+ls
+cd Assignment1/
+ls
+ls
+vi Ques1.cpp
+vi Q1.cpp
+gcc Q1.cpp
+g++ Q1.c
+ls
+g++ Q1.cpp
+./a.exe
+./a.out
+ls
+gcc -Wall Q1.cpp -o Q1
+g++ -Wall Q1.cpp -o Q1
+ls
+./Q1
+ls
+vi recursion.h
+vi recursion.cpp
+vi main.cpp
+ls
+g++ main.cpp recursion.cpp -o Q2
+./Q2
+ls
+rm Ques1.cpp
+rm a.out
+ls
+ls
+mkdir Question345
+cd Question345/
+vi string_fxn.h
+vi array_fxn.h
+ls
+rm array_fxn.h 
+rm string_fxn.h 
+vi array_fxn.h
+vi array_fxn.h
+vi string_fxn.h
+vi string_fxn.h
+ls
+array_fxn.cpp
+vi array_fxn.cpp
+vi array_fxn.cpp
+ls
+vi string_fxn.cpp
+vi main.cpp
+clear
+;s
+ls
+vi main.cpp 
+ls
+cd ..
+ls
+cd Question345/
+la
+l
+ls
+g++ main.cpp array_fxn.c string_fxn.c -o Q3
+g++ main.cpp array_fxn.cpp string_fxn.cpp -o Q3
+./Q3
+ls
+g++ main.cpp array_fxn.cpp string_fxn.cpp -o Q3
+ls
+ls
+vi main.cpp
+g++ -c array_fxn.cpp
+
+g++ -c string_fxn.
+g++ -c string_fxn.cpp
+ls
+cd ..
+cd Question345/
+ar rcs staticlib.a string_fxn.o array_fxn.o
+ls
+rm staticlib.a 
+ls
+ar rcs libmodules.a string_fxn.o array_fxn.o
+g++ main.cpp -L. -lmodules -o Q4
+./Q4
+ls
+cat libmodules.a 
+ls
+vi Makefile
+ls
+vi Makefile 
+make
+vi Makefile 
+make clean
+make
+./Q5
+ls
+vi Makefile
+./Q5
+vi Makefile
+cd ..
+cd Question345/
+vi Makefile 
+ls
+cd 
+ls
+cd Semester4/
+ls
+clear 
+ls 
+cd ..
+ls
+git add . 
+git . 
+git init 
+ls 
+ls -a 
+git add / 
+git add .
+clear 
+git status 
+git commit -M "First commit with everything"
+git commit -m "First commit with everything"
+clear 
+git status 
+git branch -M main 
+git status 
+git remote add origin http://github.com/riddhi-a23/college-lab-work.git
+git push -u origin main 
+git push -u origin main 
+ls
+exit 
