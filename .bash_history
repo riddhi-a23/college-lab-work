@@ -1,108 +1,3 @@
-ls
-vi Sorting.c
-./a.out
-gcc Sorting.c 
-./a.out
-ls
-vi Sorting.c
-gcc Sorting.c 
-vi Sorting.c 
-./a.out
-vi Sorting.c 
-ls
-ls
-mkdir Semester4
-cd Semester4/
-ls
-mkdir AlgorithmLab
-cd AlgorithmLab/
-ls
-mkdir Assignment1
-cd Assignment1/
-ls
-vi Ques1
-clear 
-0000000000000000000000000000000000000000000000000000000000000000000000000[2~
-ls
-vi Ques1.c
-gcc Ques1
-rm Ques1
-ls
-gcc Ques1.c 
-./a.out
-ls
-vi integers.txt
-gcc Ques1.c 
-./a.out
-ls
-vi integers.txt
-ls
-vi Ques1.c 
-gcc Ques1.c 
-./a.out
-gcc Ques1.c 
-vi Ques1.c 
-gcc Ques1.c 
-./a.out
-ls
-gcc -Wall Ques1.c -o Ques1
-./Ques1
-vi Ques1.c 
-gcc Ques1.c
-./a.out
-ls
-rm a.out
-rm Ques1
-ls
-gcc -Wall Ques1.c -o Ques1
-./QUes1
-./QUes1
-./Ques1
-ls
-vi Ques2.c
-cd .. 
-cd ..
- cd ..
-ls
-vi Sorting.c
-cd Semester4/
-ls
-cd AlgorithmLab/
-la
-ls
-cd Assignment1/
-ls
-vi Ques2.c 
-vi Ques2.c 
-gcc Ques2.c
-vi Ques2.c 
-vi Ques2.c 
-gcc Ques2.c
-gcc Ques2.c
-vi Ques2.c 
-gcc Ques2.c
-vi Ques2.c 
-d ..
-cd ..
-cd ..
-cd ..
-ls
-vi Sorting.c
-cd Semester4/
-cd AlgorithmLab/
-cd Assignment1/
-ls
-vi Ques2.c
-gcc Ques2.c
-vi Ques2.c
-gcc Ques2.c
-./a.out
-vi Ques2.c
-gcc Ques2.c
-./a.out
-vi Ques2.c
-gcc Ques2.c
-./a.out
 vi Ques2.c
 gcc Ques2.c
 ./a.out
@@ -498,3 +393,108 @@ git push -u origin main
 git push -u origin main 
 ls
 exit 
+ls
+mkdir Semester3
+rm a.out
+clear 
+ls 
+mv ArrayConcepts ArrayConcepts.c BST Queue Stack Stack.c students.txt ArrayConcepts.c ArrayConceptsDynamic.c LinkedList Sorting.c StackApp students_dynamic.txt ./Semester3
+clear 
+ls 
+cd Semester3
+ls
+clear 
+cd 
+ls 
+mv ArrayConceptsDynamic Semester3
+ls
+clear 
+vim Semester3
+git commit -m "Updated file structure, semester3 in one file"
+git add . 
+git commit -m "Updated file structure, semester3 in one file"
+git push -u origin main
+ls
+exit
+git pull origin main
+ls
+cd Semester4
+ls
+cd AlgorithmLab/
+ls
+cd Assignment2
+ls
+gcc -Wall Ques1.c -o Ques1
+./Ques1
+gcc -Wall Ques2.c -o Ques2
+./Ques2
+gcc -Wall Ques3.c -o Ques3
+./Ques3
+gcc -Wall Ques4.c -o Ques4
+./Ques4
+gcc -Wall Ques5.c -o Ques5
+l
+ls
+ls
+cd ..
+ls
+cd Assignment1
+ls
+vi Ques2.c
+cd ../Assignment2
+ls
+clear
+clar
+
+clear
+clear
+vi Ques2.c
+which gnuplot
+gnuplot
+python
+ls
+cd ../Assignment1
+cd ../Assignment2
+ls
+vi Ques2.c
+cd ..
+ls
+mkdir Assignment3
+ls
+cd Assignment3
+ls
+vi Ques1.c
+cd ../Assignment2
+cd ../Assignment3
+cd ../../../..
+ls
+ls
+cd riddhi
+ls
+ls
+cd Semester4/AlgorithmLab/Assignment3
+ls
+ls
+vi Ques1.c
+cd ../Assignment1
+ls
+
+cd ../Assignment3
+ls
+
+cd ../Assignment1
+ls
+vi Ques3.c
+cd ../Assignment3
+ls
+ls
+cd ../Assignment1
+ls
+ls
+./Ques1
+/Ques2
+./Ques2
+vi Ques2.c
+ls
+./Ques2
+vi testing.c

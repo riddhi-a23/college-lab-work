@@ -17,22 +17,22 @@
 $
 
 # Command Line History (newest to oldest):
+:wq
+|2,0,1768992685,,"wq"
+:Wq
+|2,0,1768989377,,"Wq"
+:w
+|2,0,1768901693,,"w"
 :q
 |2,0,1768387274,,"q"
-:wq
-|2,0,1768385323,,"wq"
 :Pwq
 |2,0,1768384485,,"Pwq"
-:Wq
-|2,0,1768384481,,"Wq"
 :sp ../main.cpp
 |2,0,1768381706,,"sp ../main.cpp"
 :WQ
 |2,0,1768381187,,"WQ"
 :sp Ques2.c
 |2,0,1768296998,,"sp Ques2.c"
-:w
-|2,0,1768295071,,"w"
 :set nu 
 |2,0,1761634711,,"set nu "
 :set nu
@@ -75,31 +75,88 @@ $
 # Debug Line History (newest to oldest):
 
 # Registers:
-""0	LINE	0
-	# Clean target: Deletes all the temporary files to start fresh
-|3,1,0,1,1,0,1768387269,"# Clean target: Deletes all the temporary files to start fresh"
-"1	LINE	0
-	# Clean target: Deletes all the temporary files to start fresh
-|3,0,1,1,1,0,1768384910,"# Clean target: Deletes all the temporary files to start fresh"
+"0	CHAR	0
+	
+	int medianOfThree(int arr[], int low, int high)
+	{
+	    int mid = (low + high) / 2;
+	    if (arr[low] > arr[mid])
+	        swap(&arr[low], &arr[mid]);
+	    if (arr[low] > arr[high])
+	        swap(&arr[low], &arr[high]);
+	    if (arr[mid] > arr[high])
+	        swap(&arr[mid], &arr[high]);
+	    swap(&arr[mid], &arr[high - 1]);
+	    return arr[high - 1];
+	}
+	
+	int partition(int arr[], int low, int high)
+	{
+	    int pivot = medianOfThree(arr, low, high);
+	    int i = low, j = high - 1;
+	    while (1)
+	    {
+	        while (arr[++i] < pivot)
+	            ;
+	        while (arr[--j] > pivot)
+	            ;
+	        if (i >= j)
+	            break;
+	        swap(&arr[i], &arr[j]);
+	    }
+	    swap(&arr[i], &arr[high - 1]);
+	    return i;
+	}
+	
+	void quickSort(int arr[], int low, int high)
+	{
+	    if (low < high)
+	    {
+	        int pi = partition(arr, low, high);
+	        quickSort(arr, low, pi - 1);
+	        quickSort(arr, pi + 1, high);
+	    }
+	}
+	
+	
+|3,0,0,0,43,0,1768901919,"","int medianOfThree(int arr[], int low, int high)","{","    int mid = (low + high) / 2;","    if (arr[low] > arr[mid])","        swap(&arr[low], &arr[mid]);","    if (arr[low] > arr[high])","        swap(&arr[low], &arr[high]);","    if (arr[mid] > arr[high])","        swap(&arr[mid], &arr[high]);","    swap(&arr[mid], &arr[high - 1]);","    return arr[high - 1];","}","","int partition(int arr[], int low, int high)","{",>48
+|<"    int pivot = medianOfThree(arr, low, high);","    int i = low, j = high - 1;","    while (1)","    {","        while (arr[++i] < pivot)","            ;","        while (arr[--j] > pivot)","            ;","        if (i >= j)","            break;","        swap(&arr[i], &arr[j]);","    }","    swap(&arr[i], &arr[high - 1]);","    return i;","}","","void quickSort(int arr[], int low, int high)","{","    if (low < high)","    {","        int pi = partition(arr, low, high);",>38
+|<"        quickSort(arr, low, pi - 1);","        quickSort(arr, pi + 1, high);","    }","}","",""
+"1	CHAR	0
+	
+	int medianOfThree(int arr[], int low, int high)
+	{
+	    int mid = (low + high) / 2;
+	    if (arr[low] > arr[mid])
+	        swap(&arr[low], &arr[mid]);
+	    if (arr[low] > arr[high])
+	        swap(&arr[low], &arr[high]);
+	    if (arr[mid] > arr[high])
+	        swap(&arr[mid], &arr[high]);
+	    swap(&arr[mid], &ar
+|3,0,1,0,11,0,1768902004,"","int medianOfThree(int arr[], int low, int high)","{","    int mid = (low + high) / 2;","    if (arr[low] > arr[mid])","        swap(&arr[low], &arr[mid]);","    if (arr[low] > arr[high])","        swap(&arr[low], &arr[high]);","    if (arr[mid] > arr[high])","        swap(&arr[mid], &arr[high]);","    swap(&arr[mid], &ar"
 "2	LINE	0
-	# Step 5: Compile numeric_ops.cpp into an object file
-|3,0,2,1,1,0,1768384908,"# Step 5: Compile numeric_ops.cpp into an object file"
+	# Clean target: Deletes all the temporary files to start fresh
+|3,0,2,1,1,0,1768384910,"# Clean target: Deletes all the temporary files to start fresh"
 "3	LINE	0
-	# Step 4: Compile string_ops.cpp into an object file
-|3,0,3,1,1,0,1768384906,"# Step 4: Compile string_ops.cpp into an object file"
-"4	LINE	0
-	# Step 3: Compile main.cpp into an object file
-|3,0,4,1,1,0,1768384904,"# Step 3: Compile main.cpp into an object file"
-"5	LINE	0
-	# Step 2: Create the static library from the module object files
-|3,0,5,1,1,0,1768384902,"# Step 2: Create the static library from the module object files"
-"6	LINE	0
-	# Step 1: Link the main object file with the static library to create the executable
-|3,0,6,1,1,0,1768384900,"# Step 1: Link the main object file with the static library to create the executable"
-"7	LINE	0
 	# Step 5: Compile numeric_ops.cpp into an object file
-|3,0,7,1,1,0,1768384859,"# Step 5: Compile numeric_ops.cpp into an object file"
-"8	CHAR	0
+|3,0,3,1,1,0,1768384908,"# Step 5: Compile numeric_ops.cpp into an object file"
+"4	LINE	0
+	# Step 4: Compile string_ops.cpp into an object file
+|3,0,4,1,1,0,1768384906,"# Step 4: Compile string_ops.cpp into an object file"
+"5	LINE	0
+	# Step 3: Compile main.cpp into an object file
+|3,0,5,1,1,0,1768384904,"# Step 3: Compile main.cpp into an object file"
+"6	LINE	0
+	# Step 2: Create the static library from the module object files
+|3,0,6,1,1,0,1768384902,"# Step 2: Create the static library from the module object files"
+"7	LINE	0
+	# Step 1: Link the main object file with the static library to create the executable
+|3,0,7,1,1,0,1768384900,"# Step 1: Link the main object file with the static library to create the executable"
+"8	LINE	0
+	# Step 5: Compile numeric_ops.cpp into an object file
+|3,0,8,1,1,0,1768384859,"# Step 5: Compile numeric_ops.cpp into an object file"
+"9	CHAR	0
 	
 	int sum(int arr[], int n)
 	{
@@ -110,278 +167,479 @@ $
 	    return arr[n - 1] + sum(arr, n - 1);
 	}
 	
-|3,0,8,0,10,0,1768381664,"","int sum(int arr[], int n)","{","    if (n == 0)","    {","        return 0;","    }","    return arr[n - 1] + sum(arr, n - 1);","}",""
-"9	CHAR	0
-	
-	int largest(int arr[], int n)
-	{
-	    if (n == 1)
-	    {
-	        return arr[0];
-	    }
-	    int maxofRest = largest(arr, n - 1);
-	    if (arr[n - 1] > maxofRest)
-	    {
-	        return arr[n - 1];
-	    }
-	    else
-	    {
-	        return maxofRest;
-	    }
-	}
-	
-	bool search(int arr[], int n, int num, int i)
-	{
-	    if (i == n)
-	    {
-	        return false;
-	    }
-	    if (arr[i] == num)
-	    {
-	        return true;
-	    }
-	    return search(arr, n, num, i + 1);
-	}
-	
-	void printReverse(int arr[], int n)
-	{
-	    if (n == 0)
-	    {
-	        return;
-	    }
-	    cout << arr[n - 1] << " ";
-	    printReverse(arr, n - 1);
-	}
-	
-|3,0,9,0,41,0,1768381656,"","int largest(int arr[], int n)","{","    if (n == 1)","    {","        return arr[0];","    }","    int maxofRest = largest(arr, n - 1);","    if (arr[n - 1] > maxofRest)","    {","        return arr[n - 1];","    }","    else","    {","        return maxofRest;","    }","}","","bool search(int arr[], int n, int num, int i)","{","    if (i == n)","    {","        return false;","    }","    if (arr[i] == num)","    {",>22
-|<"        return true;","    }","    return search(arr, n, num, i + 1);","}","","void printReverse(int arr[], int n)","{","    if (n == 0)","    {","        return;","    }","    cout << arr[n - 1] << \" \";","    printReverse(arr, n - 1);","}",""
-"-	CHAR	0
-	i
-|3,0,36,0,1,0,1768381167,"i"
+|3,0,9,0,10,0,1768381664,"","int sum(int arr[], int n)","{","    if (n == 0)","    {","        return 0;","    }","    return arr[n - 1] + sum(arr, n - 1);","}",""
+""-	CHAR	0
+	n
+|3,1,36,0,1,0,1768988504,"n"
 
 # File marks:
-'0  3  0  ~/Semester3
-|4,48,3,0,1768387274,"~/Semester3"
-'1  23  0  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,49,23,0,1768385323,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
-'2  23  0  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,50,23,0,1768385099,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
-'3  23  0  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,51,23,0,1768384916,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
-'4  23  0  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,52,23,0,1768384916,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
-'5  11  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,53,11,42,1768384741,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
-'6  13  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,54,13,42,1768384741,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
-'7  11  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,55,11,42,1768384741,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
-'8  13  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,56,13,42,1768384741,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
-'9  11  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,57,11,42,1768384741,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
+'0  31  19  ~/Semester4/ProgrammingLab/Assignment2/Ques2.c
+|4,48,31,19,1768992685,"~/Semester4/ProgrammingLab/Assignment2/Ques2.c"
+'1  30  35  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,49,30,35,1768989625,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+'2  21  27  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,50,21,27,1768989382,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+'3  21  27  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,51,21,27,1768989382,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+'4  44  21  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,52,44,21,1768989146,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+'5  44  21  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,53,44,21,1768989146,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+'6  43  21  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,54,43,21,1768989146,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+'7  43  21  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,55,43,21,1768989146,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+'8  15  9  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,56,15,9,1768988564,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+'9  15  9  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,57,15,9,1768988564,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
 
 # Jumplist (newest first):
--'  3  0  ~/Semester3
-|4,39,3,0,1768387274,"~/Semester3"
--'  23  0  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,23,0,1768385323,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  23  0  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,23,0,1768385323,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  23  0  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,23,0,1768385099,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  23  0  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,23,0,1768385099,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  23  0  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,23,0,1768384916,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  23  0  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,23,0,1768384916,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  18  0  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,18,0,1768384868,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  18  0  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,18,0,1768384868,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  18  0  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,18,0,1768384868,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  18  0  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,18,0,1768384868,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  18  0  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,18,0,1768384868,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  18  0  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,18,0,1768384868,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  11  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,11,42,1768384815,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  11  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,11,42,1768384815,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  11  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,11,42,1768384815,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  11  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,11,42,1768384815,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  11  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,11,42,1768384815,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  11  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,11,42,1768384815,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  13  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,13,42,1768384741,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  13  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,13,42,1768384741,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  13  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,13,42,1768384741,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  13  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,13,42,1768384741,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  13  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,13,42,1768384741,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  13  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,13,42,1768384741,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  13  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,13,42,1768384716,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  13  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,13,42,1768384716,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  1  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,1,42,1768384394,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  1  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,1,42,1768384394,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  1  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,1,42,1768384394,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  1  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,1,42,1768384394,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  1  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,1,42,1768384394,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  1  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,1,42,1768384394,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  1  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,1,42,1768384394,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  1  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,1,42,1768384394,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  1  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,1,42,1768384394,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  1  42  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,1,42,1768384394,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  7  9  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,7,9,1768384155,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  7  9  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,7,9,1768384155,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  7  9  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,7,9,1768384155,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  7  9  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,7,9,1768384155,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  7  9  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,7,9,1768384155,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  7  9  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,7,9,1768384155,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  7  9  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,7,9,1768384155,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  7  9  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,7,9,1768384155,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  7  9  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,7,9,1768384155,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  7  9  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,7,9,1768384155,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  1  0  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,1,0,1768383438,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  1  0  ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
-|4,39,1,0,1768383438,"~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
--'  102  8  ~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp
-|4,39,102,8,1768382612,"~/Semester4/ProgrammingLab/Assignment1/Question345/main.cpp"
+-'  31  19  ~/Semester4/ProgrammingLab/Assignment2/Ques2.c
+|4,39,31,19,1768992685,"~/Semester4/ProgrammingLab/Assignment2/Ques2.c"
+-'  1  0  ~/Semester4/ProgrammingLab/Assignment2/Ques2.c
+|4,39,1,0,1768990031,"~/Semester4/ProgrammingLab/Assignment2/Ques2.c"
+-'  30  35  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,30,35,1768989625,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  30  35  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,30,35,1768989625,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  21  27  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,21,27,1768989579,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  21  27  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,21,27,1768989579,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  21  27  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,21,27,1768989382,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  21  27  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,21,27,1768989382,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  44  21  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,44,21,1768989307,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  43  21  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,43,21,1768989307,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  44  21  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,44,21,1768989307,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  43  21  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,43,21,1768989307,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  43  21  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,43,21,1768989146,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  43  21  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,43,21,1768989146,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  15  9  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,15,9,1768988614,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  15  9  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,15,9,1768988614,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  15  9  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,15,9,1768988614,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  15  9  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,15,9,1768988614,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  15  9  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,15,9,1768988614,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  15  9  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,15,9,1768988614,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  15  9  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,15,9,1768988564,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  15  9  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,15,9,1768988564,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  16  16  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,16,16,1768988553,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  16  16  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,16,16,1768988553,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  16  16  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,16,16,1768988553,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  16  16  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,16,16,1768988553,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  16  16  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,16,16,1768988553,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  16  16  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,16,16,1768988553,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  16  16  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,16,16,1768988553,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  16  16  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,16,16,1768988553,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  15  16  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,15,16,1768988515,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  15  16  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,15,16,1768988515,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  15  19  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,15,19,1768988479,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  15  19  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,15,19,1768988479,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  26  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,26,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  25  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,25,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  24  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,24,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  26  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,26,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  25  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,25,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  24  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,24,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  26  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,26,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  25  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,25,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  25  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,25,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  24  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,24,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  24  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,24,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  26  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,26,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  25  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,25,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  24  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,24,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  26  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,26,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  25  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,25,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  24  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,24,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  26  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,26,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  25  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,25,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  25  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,25,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  24  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,24,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  24  23  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,24,23,1768988208,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  19  3  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,19,3,1768988031,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  18  3  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,18,3,1768988031,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  19  3  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,19,3,1768988031,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  18  3  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,18,3,1768988031,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  19  3  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,19,3,1768988031,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  18  3  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,18,3,1768988031,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  19  3  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,19,3,1768988031,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  18  3  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,18,3,1768988031,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  18  3  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,18,3,1768988031,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  19  3  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,19,3,1768988031,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  18  3  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,18,3,1768988031,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  19  3  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,19,3,1768988031,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  18  3  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,18,3,1768988031,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  19  3  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,19,3,1768988031,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  18  3  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,18,3,1768988031,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  19  3  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,19,3,1768988031,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  18  3  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,18,3,1768988031,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  18  3  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,18,3,1768988031,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  18  3  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,18,3,1768988004,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  18  3  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,18,3,1768988004,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  38  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,38,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  37  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,37,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  36  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,36,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  38  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,38,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  37  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,37,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  36  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,36,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  38  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,38,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  37  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,37,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  37  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,37,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  36  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,36,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  36  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,36,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  36  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,36,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  38  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,38,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  37  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,37,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  36  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,36,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  38  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,38,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  37  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,37,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  36  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,36,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  38  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,38,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  37  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,37,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  37  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,37,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  36  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,36,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  36  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,36,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
+-'  36  15  ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+|4,39,36,15,1768987931,"~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp"
 
 # History of marks within files (newest to oldest):
+
+> ~/Semester4/ProgrammingLab/Assignment2/Ques2.c
+	*	1768992684	0
+	"	31	19
+	^	31	20
+	.	31	19
+	+	47	0
+	+	46	9
+	+	45	0
+	+	43	0
+	+	42	0
+	+	3	20
+	+	6	9
+	+	5	14
+	+	9	2
+	+	41	0
+	+	2	0
+	+	39	0
+	+	11	24
+	+	13	0
+	+	9	2
+	+	13	10
+	+	11	33
+	+	13	13
+	+	11	31
+	+	14	14
+	+	11	61
+	+	13	11
+	+	14	15
+	+	11	34
+	+	12	0
+	+	15	29
+	+	22	13
+	+	23	0
+	+	22	1
+	+	23	1
+	+	36	1
+	+	20	0
+	+	19	20
+	+	18	27
+	+	35	18
+	+	31	19
+
+> ~/Semester4/ProgrammingLab/Assignment2/Ques1.cpp
+	*	1768989624	0
+	"	30	35
+	^	30	36
+	.	30	35
+	+	49	0
+	+	35	1
+	+	33	14
+	+	3	19
+	+	33	0
+	+	2	15
+	+	32	0
+	+	31	0
+	+	36	8
+	+	36	42
+	+	37	10
+	+	36	7
+	+	44	38
+	+	13	30
+	+	5	22
+	+	6	15
+	+	11	2
+	+	13	31
+	+	14	18
+	+	42	0
+	+	41	1
+	+	23	13
+	+	27	23
+	+	26	32
+	+	29	43
+	+	30	30
+	+	38	11
+	+	41	23
+	+	40	54
+	+	47	0
+	+	46	24
+	+	45	41
+	+	41	0
+	+	46	0
+	+	44	17
+	+	45	7
+	+	38	0
+	+	3	0
+	+	26	28
+	+	16	16
+	+	15	9
+	+	16	12
+	+	20	9
+	+	21	27
+	+	43	11
+	+	30	35
+
+> ~/Semester4/AlgorithmLab/Assignment1/testing.c
+	*	1768905948	0
+	"	5	0
+	^	5	1
+	.	5	0
+	+	6	0
+	+	5	8
+	+	4	0
+	+	5	0
+
+> ~/Semester4/AlgorithmLab/Assignment1/Ques2.c
+	*	1768905447	0
+	"	102	0
+	^	66	11
+	.	66	10
+	+	81	1
+	+	76	101
+	+	26	10
+	+	25	17
+	+	26	15
+	+	27	27
+	+	29	0
+	+	28	18
+	+	24	18
+	+	2	18
+	+	3	16
+	+	29	2
+	+	45	0
+	+	32	0
+	+	31	6
+	+	30	8
+	+	41	0
+	+	35	1
+	+	45	1
+	+	44	21
+	+	44	3
+	+	40	9
+	+	35	13
+	+	61	26
+	+	61	25
+	+	74	0
+	+	73	1
+	+	64	12
+	+	36	13
+	+	42	10
+	+	45	2
+	+	45	1
+	+	36	8
+	+	76	41
+	+	76	88
+	+	76	41
+	+	76	42
+	+	76	86
+	+	76	81
+	+	76	80
+	+	76	91
+	+	61	8
+	+	62	9
+	+	64	17
+	+	70	3
+	+	73	9
+	+	35	0
+	+	38	16
+	+	46	14
+	+	37	10
+	+	47	42
+	+	59	0
+	+	63	16
+	+	76	42
+	+	76	41
+	+	5	0
+	+	5	1
+	+	60	20
+	+	76	6
+	+	76	43
+	+	72	0
+	+	76	92
+	+	77	0
+	+	80	1
+	+	77	14
+	+	78	52
+	+	76	91
+	+	79	50
+	+	3	5
+	+	79	44
+	+	76	85
+	+	66	7
+	+	68	14
+	+	60	6
+	+	5	42
+	+	5	1
+	+	5	17
+	+	60	7
+	+	48	0
+	+	76	41
+	+	64	12
+	+	66	16
+	+	68	23
+	+	57	0
+	+	53	1
+	+	77	0
+	+	60	1
+	+	5	0
+	+	21	1
+	+	60	6
+	+	5	0
+	+	6	0
+	+	19	13
+	+	64	12
+	+	65	22
+	+	102	0
+	+	11	0
+	+	18	1
+	+	20	0
+	+	66	10
+
+> ~/Semester4/AlgorithmLab/Assignment1/Ques3.c
+	*	1768903920	0
+	"	7	0
+	^	107	0
+	.	190	0
+	+	190	0
+
+> ~/Semester4/AlgorithmLab/Assignment3/Ques1.c
+	*	1768903800	0
+	"	3	15
+	^	3	16
+	.	3	15
+	+	43	0
+	+	42	6
+	+	36	0
+	+	1	17
+	+	7	16
+	+	1	40
+	+	4	0
+	+	7	40
+	+	8	22
+	+	34	0
+	+	41	0
+	+	35	18
+	+	3	15
+
+> ~/Semester4/AlgorithmLab/Assignment2/Ques2.c
+	*	1768901584	0
+	"	7	0
+	^	95	8
+	.	95	7
+	+	95	7
 
 > ~/Semester4/ProgrammingLab/Assignment1/Question345/Makefile
 	*	1768385322	0
@@ -606,119 +864,6 @@ $
 	+	94	7
 	+	105	34
 	+	105	12
-
-> ~/Semester4/AlgorithmLab/Assignment1/Ques3.c
-	*	1768301368	0
-	"	107	0
-	^	107	0
-	.	190	0
-	+	190	0
-
-> ~/Semester4/AlgorithmLab/Assignment1/Ques2.c
-	*	1768297171	0
-	"	66	10
-	^	66	11
-	.	66	10
-	+	81	1
-	+	76	101
-	+	26	10
-	+	25	17
-	+	26	15
-	+	27	27
-	+	29	0
-	+	28	18
-	+	24	18
-	+	2	18
-	+	3	16
-	+	29	2
-	+	45	0
-	+	32	0
-	+	31	6
-	+	30	8
-	+	41	0
-	+	35	1
-	+	45	1
-	+	44	21
-	+	44	3
-	+	40	9
-	+	35	13
-	+	61	26
-	+	61	25
-	+	74	0
-	+	73	1
-	+	64	12
-	+	36	13
-	+	42	10
-	+	45	2
-	+	45	1
-	+	36	8
-	+	76	41
-	+	76	88
-	+	76	41
-	+	76	42
-	+	76	86
-	+	76	81
-	+	76	80
-	+	76	91
-	+	61	8
-	+	62	9
-	+	64	17
-	+	70	3
-	+	73	9
-	+	35	0
-	+	38	16
-	+	46	14
-	+	37	10
-	+	47	42
-	+	59	0
-	+	63	16
-	+	76	42
-	+	76	41
-	+	5	0
-	+	5	1
-	+	60	20
-	+	76	6
-	+	76	43
-	+	72	0
-	+	76	92
-	+	77	0
-	+	80	1
-	+	77	14
-	+	78	52
-	+	76	91
-	+	79	50
-	+	3	5
-	+	79	44
-	+	76	85
-	+	66	7
-	+	68	14
-	+	60	6
-	+	5	42
-	+	5	1
-	+	5	17
-	+	60	7
-	+	48	0
-	+	76	41
-	+	64	12
-	+	66	16
-	+	68	23
-	+	57	0
-	+	53	1
-	+	77	0
-	+	60	1
-	+	5	0
-	+	21	1
-	+	60	6
-	+	5	0
-	+	6	0
-	+	19	13
-	+	64	12
-	+	65	22
-	+	102	0
-	+	11	0
-	+	18	1
-	+	20	0
-	+	66	10
 
 > ~/Semester4/AlgorithmLab/Assignment1/Ques1.c
 	*	1768296738	0

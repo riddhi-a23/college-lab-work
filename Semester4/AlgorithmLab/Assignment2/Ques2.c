@@ -92,7 +92,7 @@ struct MinMax getMinMaxDC(int arr[], int low, int high)
         result.min = right.min;
 
     dc_comparisons++;
-    if (left.max > right.max)
+left.max    if (left.max > right.max)
         result.max = left.max;
     else
         result.max = right.max;
