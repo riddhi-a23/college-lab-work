@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-long long naive_comparisons = 0;
-long long dc_comparisons = 0;
+int naive_comparisons = 0;
+int dc_comparisons = 0;
 
 struct MinMax
 {
@@ -92,7 +92,7 @@ struct MinMax getMinMaxDC(int arr[], int low, int high)
         result.min = right.min;
 
     dc_comparisons++;
-left.max    if (left.max > right.max)
+    if (left.max > right.max)
         result.max = left.max;
     else
         result.max = right.max;
@@ -105,6 +105,12 @@ int main()
     srand(time(0));
     int sizes[] = {100, 1000, 10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000};
     int num_tests = sizeof(sizes) / sizeof(sizes[0]);
+
+    FILE *fp = fopen("data.txt", "w");
+    if (fp == NULL) {
+        printf("Error: Could not create data.txt\n");
+        return 1;
+    }
 
     printf("%-10s | %-20s | %-20s\n", "Input Size", "Naive Comparisons", "D&C Comparisons");
     printf("------------------------------------------------------------\n");
@@ -122,10 +128,14 @@ int main()
         dc_comparisons = 0;
         getMinMaxDC(arr, 0, n - 1);
 
-        printf("%-10d | %-20lld | %-20lld\n", n, naive_comparisons, dc_comparisons);
+        printf("%-10d | %-20d | %-20d\n", n, naive_comparisons, dc_comparisons);
+        fprintf(fp, "%d %d %d\n", n, naive_comparisons, dc_comparisons);
 
         free(arr);
     }
+
+    fclose(fp);
+    printf("\nSuccess! Data saved to 'data.txt'.\n");
 
     return 0;
 }
