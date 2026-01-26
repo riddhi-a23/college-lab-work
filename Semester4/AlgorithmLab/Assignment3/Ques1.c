@@ -1,43 +1,94 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<time.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+long long comparisons = 0;
+
+void swap(int *a, int *b)
+{
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
 
 int partition(int arr[], int low, int high)
 {
-    int p = rand() % (high-low+1) + low;
-    int pivot = arr[p];
-    int i = low, j = high - 1;
-    while (1)
+    int pivot = arr[high];
+    int i = (low - 1);
+
+    for (int j = low; j <= high - 1; j++)
     {
-        while (arr[++i] < pivot)
-            ;
-        while (arr[--j] > pivot)
-            ;
-        if (i >= j)
-            break;
-        swap(&arr[i], &arr[j]);
+        comparisons++;
+        if (arr[j] < pivot)
+        {
+            i++;
+            swap(&arr[i], &arr[j]);
+        }
     }
-    swap(&arr[i], &arr[high - 1]);
-    return i;
+    swap(&arr[i + 1], &arr[high]);
+    return (i + 1);
 }
 
-void quickSort(int arr[], int low, int high)
+int randomizedPartition(int arr[], int low, int high)
+{
+    int random = low + rand() % (high - low + 1);
+    swap(&arr[random], &arr[high]);
+    return partition(arr, low, high);
+}
+
+void randomizedQuickSort(int arr[], int low, int high)
 {
     if (low < high)
     {
-        int pi = partition(arr, low, high);
-        quickSort(arr, low, pi - 1);
-        quickSort(arr, pi + 1, high);
+        int pi = randomizedPartition(arr, low, high);
+        randomizedQuickSort(arr, low, pi - 1);
+        randomizedQuickSort(arr, pi + 1, high);
     }
 }
 
-int main(){
-	srand(time(NULL));
-	int arr[100000];
-	for(int i=0;i<100000;i++){
-	arr[i]=rand();
-	}
+void generateData(int arr[], int n, int type)
+{
+    for (int i = 0; i < n; i++)
+    {
+        if (type == 1)
+            arr[i] = i;
+        else if (type == 2)
+            arr[i] = n - i;
+        else
+            arr[i] = rand() % n;
+    }
+}
 
+int main()
+{
+    int n = 100000;
+    int *arr = (int *)malloc(n * sizeof(int));
+    if (arr == NULL)
+    {
+        printf("Memory allocation failed");
+        return 1;
+    }
 
-	return 0;
+    srand(time(0));
+    clock_t start, end;
+    double cpu_time_used;
+
+    printf("%-20s %-20s %-20s\n", "Scenario", "Comparisons", "Time");
+
+    char *scenarios[] = {"Best", "Worst", "Average"};
+    for (int t = 1; t <= 3; t++)
+    {
+        generateData(arr, n, t);
+
+        comparisons = 0;
+        start = clock();
+        randomizedQuickSort(arr, 0, n - 1);
+        end = clock();
+
+        cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
+        printf("%-20s %-20lld %-20f\n", scenarios[t - 1], comparisons, cpu_time_used);
+    }
+
+    free(arr);
+    return 0;
 }
