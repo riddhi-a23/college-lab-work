@@ -7,7 +7,7 @@ void swap(int *a, int *b)
     int temp = *a;
     *a = *b;
     *b = temp;
-} 
+}
 
 void bubbleSort(int arr[], int n)
 {
@@ -16,7 +16,6 @@ void bubbleSort(int arr[], int n)
             if (arr[j] > arr[j + 1])
                 swap(&arr[j], &arr[j + 1]);
 }
-
 
 int main()
 {
@@ -63,7 +62,7 @@ int main()
     idx = -1;
     double t2;
     int comp2 = 0;
-    bubbleSort(arr,size);
+    bubbleSort(arr, size);
     int left = 0;
     int right = size - 1;
     start = clock();

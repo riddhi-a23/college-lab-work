@@ -165,7 +165,7 @@ int main()
         t_insert = ((double)(end - start)) / CLOCKS_PER_SEC;
 
         // 3. Measure Quick Sort
-        copyArray(masterArr, workArr, n); 
+        copyArray(masterArr, workArr, n);
         start = clock();
         quickSort(workArr, 0, n - 1);
         end = clock();

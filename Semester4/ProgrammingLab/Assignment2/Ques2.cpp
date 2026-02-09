@@ -3,10 +3,10 @@ using namespace std;
 
 namespace StackSystem {
     struct GrowingStack {
-        int* elements;
-        int top;
-        int capacity;
-        int max_capacity;
+        int* elements;     
+        int top;           
+        int capacity;      
+        int max_capacity;   
     };
 
     void initialize(GrowingStack& s, int max_limit, int initial_size = 2) {
@@ -27,7 +27,7 @@ namespace StackSystem {
     inline int currentSize(const GrowingStack& s) {
         return s.top + 1;
     }
-    
+
     inline int getMaxSize(const GrowingStack& s) {
         return s.max_capacity;
     }
@@ -51,18 +51,27 @@ namespace StackSystem {
         delete[] s.elements;
         s.elements = new_elements;
         s.capacity = new_capacity;
-        std::cout << "[Notice] Stack inflated to size " << s.capacity << "\n";
+        
+        cout << "!!!Stack inflated. New Capacity: " << s.capacity << "\n";
         return true;
     }
 
     void push(GrowingStack& s, int val) {
         if (isFull(s)) {
             if (!inflate(s)) {
-                cout << "Error: Stack Overflow (Max limit reached)\n";
+                cout << "Error: Stack Overflow (Max limit of " << s.max_capacity << " reached)\n";
                 return;
             }
         }
-        s.elements[++s.top] = val;
+        s.top++;
+        s.elements[s.top] = val;
+    }
+
+    void push(GrowingStack& s, int inputs[], int count) {
+        for(int i = 0; i < count; i++) {
+            push(s, inputs[i]);
+        }
+        cout << "Pushed " << count << " elements.\n";
     }
 
     int pop(GrowingStack& s) {
@@ -73,58 +82,77 @@ namespace StackSystem {
         return s.elements[s.top--];
     }
 
-    bool pop(GrowingStack& s, int& out_val) {
-        if (isEmpty(s)) return false;
-        out_val = s.elements[s.top--];
-        return true;
-    }
-
     void cleanup(GrowingStack& s) {
         delete[] s.elements;
         s.elements = nullptr;
+        s.top = -1;
     }
 }
 
 int main() {
     StackSystem::GrowingStack stack1, stack2, stack3;
-    
-    StackSystem::initialize(stack1, 10); 
-    StackSystem::initialize(stack2, 10);
-    StackSystem::initialize(stack3, 20); 
+    int maxLim, initSize, count;
 
-    for (int i = 1; i <= 5; i++) StackSystem::push(stack1, i * 10);
-    for (int i = 1; i <= 3; i++) StackSystem::push(stack2, i * 100);   
+    cout << "Enter Max Capacity for Stack 1: "; cin >> maxLim;
+    cout << "Enter Initial Size for Stack 1: "; cin >> initSize;
+    StackSystem::initialize(stack1, maxLim, initSize);
 
-    cout << "--- Processing Logic ---\n";
+    cout << "How many numbers to push to Stack 1? "; cin >> count;
+    if (count > 0) {
+        int* inputArr = new int[count]; 
+        cout << "Enter " << count << " numbers: ";
+        for (int i = 0; i < count; i++) cin >> inputArr[i];
+        
+        StackSystem::push(stack1, inputArr, count);
+        delete[] inputArr; 
+    }
+
+    cout << "\nEnter Max Capacity for Stack 2: "; cin >> maxLim;
+    cout << "Enter Initial Size for Stack 2: "; cin >> initSize;
+    StackSystem::initialize(stack2, maxLim, initSize);
+
+    cout << "How many numbers to push to Stack 2? "; cin >> count;
+    if (count > 0) {
+        int* inputArr = new int[count]; 
+        cout << "Enter " << count << " numbers: ";
+        for (int i = 0; i < count; i++) cin >> inputArr[i];
+
+        StackSystem::push(stack2, inputArr, count);
+        delete[] inputArr;
+    }
+
+    int totalMax = StackSystem::getMaxSize(stack1) + StackSystem::getMaxSize(stack2);
+    StackSystem::initialize(stack3, totalMax, 2); 
+
+    cout << "\n--- Creating stack3 ---\n";
     
-    int count = 1;
+    int step = 1;
     while (!StackSystem::isEmpty(stack1) && !StackSystem::isEmpty(stack2)) {
         int val;
-        // Odd count -> stack1, Even count -> stack2
-        if (count % 2 != 0) {
-            StackSystem::pop(stack1, val);
-            cout << "Step " << count << " (Odd): Popped " << val << " from Stack1\n";
+        if (step % 2 != 0) {
+            val = StackSystem::pop(stack1);
+            cout << "Step " << step << " (Odd): Pop " << val << " from Stack1\n";
             StackSystem::push(stack3, val);
         } else {
-            StackSystem::pop(stack2, val);
-            cout << "Step " << count << " (Even): Popped " << val << " from Stack2\n";
+            val = StackSystem::pop(stack2);
+            cout << "Step " << step << " (Even): Pop " << val << " from Stack2\n";
             StackSystem::push(stack3, val);
         }
-        count++;
+        step++;
     }
 
     while (!StackSystem::isEmpty(stack1)) {
         int val = StackSystem::pop(stack1);
-        cout << "Stack2 empty. Draining Stack1: " << val << "\n";
+        cout << "Stack2 empty. Popping from Stack1: " << val << "\n";
         StackSystem::push(stack3, val);
     }
     while (!StackSystem::isEmpty(stack2)) {
         int val = StackSystem::pop(stack2);
-        cout << "Stack1 empty. Draining Stack2: " << val << "\n";
+        cout << "Stack1 empty. Popping from Stack2: " << val << "\n";
         StackSystem::push(stack3, val);
     }
 
-    cout << "\nFinal Stack3 Contents (Size: " << StackSystem::currentSize(stack3) << "):\n";
+    cout << "\nstack3 Elements: ";
     while (!StackSystem::isEmpty(stack3)) {
         cout << StackSystem::pop(stack3) << " ";
     }
