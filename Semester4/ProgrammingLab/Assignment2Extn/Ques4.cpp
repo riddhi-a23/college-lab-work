@@ -1,36 +1,73 @@
 #include <iostream>
-#include <string>
-
 using namespace std;
 
-// Generic swap using templates and reference variables [cite: 9, 11]
-template <typename T>
-inline void swapElements(T &a, T &b) {
-    T temp = a;
-    a = b;
-    b = temp;
-}
+namespace Sorting
+{
+    template <typename T>
+    inline void swapElements(T &a, T &b)
+    {
+        T temp = a;
+        a = b;
+        b = temp;
+    }
 
-// Generic sort function [cite: 53]
-template <typename T>
-void genericSort(T arr[], int n) {
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) { // Note: This operator fails for basic structs [cite: 54]
-                swapElements(arr[j], arr[j + 1]);
+    // Bubble sort
+    template <typename T>
+    void genericSort(T arr[], const int n)
+    {
+        for (int i = 0; i < n - 1; i++)
+        {
+            for (int j = 0; j < n - i - 1; j++)
+            {
+                if (arr[j] > arr[j + 1])
+                {
+                    swapElements(arr[j], arr[j + 1]);
+                }
             }
         }
     }
 }
 
-int main() {
-    int n = 5;
-    double dArr[] = {4.4, 1.1, 5.5, 2.2, 3.3};
+struct Student {
+    int rollNo;
+    double marks;
+};
+
+int main()
+{
+    int n;
+    cout << "Enter the number of elements (N): ";
+    cin >> n;
+
+    int* intArr = new int[n];
+    cout << "\nEnter " << n << " integers: ";
+    for (int i = 0; i < n; i++) cin >> intArr[i];
+
+    Sorting::genericSort(intArr, n);
     
-    cout << "Sorting Double Array: ";
-    genericSort(dArr, n);
-    for(int i=0; i<n; i++) cout << dArr[i] << " ";
+    cout << "Sorted integers: ";
+    for (int i = 0; i < n; i++) cout << intArr[i] << " ";
     cout << endl;
+
+    double* doubleArr = new double[n];
+    cout << "\nEnter " << n << " doubles: ";
+    for (int i = 0; i < n; i++) cin >> doubleArr[i];
+
+    Sorting::genericSort(doubleArr, n);
+
+    cout << "Sorted doubles: ";
+    for (int i = 0; i < n; i++) cout << doubleArr[i] << " ";
+    cout << endl;
+
+    cout << "\n--- Testing with Struct Data Type ---" << endl;
+    Student classroom[2] = {{102, 85.5}, {101, 92.0}};
+    
+    // Sorting::genericSort(classroom, 2); 
+
+    delete[] intArr;
+    delete[] doubleArr;
+    intArr = nullptr;
+    doubleArr = nullptr;
 
     return 0;
 }
