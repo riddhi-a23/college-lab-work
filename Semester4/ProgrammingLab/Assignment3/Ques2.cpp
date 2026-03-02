@@ -43,7 +43,7 @@ namespace StackSystem
             for (int i = 0; i <= this->top; i++) {
                 this->elements[i] = other.elements[i];
             }
-            cout << ">> Copy Constructor called.\n";
+            cout << "Copy Constructor called.\n";
         }
 
         GrowingStack& operator=(const GrowingStack &other)
@@ -62,7 +62,7 @@ namespace StackSystem
                     this->elements[i] = other.elements[i];
                 }
             }
-            cout << ">> Assignment Operator called.\n";
+            cout << "Assignment Operator called.\n";
             return *this;
         }
 
@@ -218,13 +218,13 @@ int main()
         stack3->push(val);
     }
 
-    // --- DEMONSTRATING COPY CONSTRUCTOR ---
+    // DEMONSTRATING COPY CONSTRUCTOR
     // Creating stack4 as a copy of stack3
     cout << "\n--- Testing Copy Constructor (Creating Stack4 from Stack3) ---\n";
     StackSystem::GrowingStack stack4 = *stack3; 
     cout << "Stack4 created. Pop one element: " << stack4.pop() << endl;
 
-    // --- DEMONSTRATING ASSIGNMENT OPERATOR ---
+    // DEMONSTRATING ASSIGNMENT OPERATOR
     cout << "\n--- Testing Assignment Operator (Assigning Stack4 to Stack5) ---\n";
     StackSystem::GrowingStack stack5(10, 2); 
     stack5 = stack4;
