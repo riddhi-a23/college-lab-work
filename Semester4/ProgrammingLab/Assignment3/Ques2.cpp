@@ -56,7 +56,6 @@ namespace StackSystem
                 this->capacity = other.capacity;
                 this->top = other.top;
 
-                // Deep Copy
                 this->elements = new int[this->capacity];
                 for (int i = 0; i <= this->top; i++) {
                     this->elements[i] = other.elements[i];
