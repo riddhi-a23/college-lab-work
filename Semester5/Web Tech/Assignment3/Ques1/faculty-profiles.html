@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CST Department Faculty Profiles - IIEST Shibpur</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f4f7;
+        margin: 0;
+        padding: 20px;
+    }
+    h1 {
+        text-align: center;
+        color: #1a3d7c;
+    }
+    .search-box {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    .search-box input {
+        padding: 8px 12px;
+        width: 280px;
+        font-size: 15px;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+    }
+    .search-box button {
+        padding: 8px 16px;
+        font-size: 15px;
+        background-color: #1a3d7c;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .search-box button:hover {
+        background-color: #12295a;
+    }
+
+    /* Theme picker logic using CSS radio hack */
+    .theme-radio { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .theme-picker { text-align: center; margin-bottom: 20px; }
+    .theme-picker label {
+        margin: 0 6px; padding: 4px 12px; border: 1px solid #888;
+        border-radius: 4px; cursor: pointer; font-weight: bold;
+    }
+    #theme-dark:checked ~ .theme-picker label[for="theme-dark"],
+    #theme-light:checked ~ .theme-picker label[for="theme-light"] {
+        background-color: #1a3d7c; color: #fff;
+    }
+    #theme-dark:checked ~ #profileArea .card {
+        background-color: #222; color: #eee; border-color: #555;
+    }
+    #theme-dark:checked ~ #profileArea .card .qualification,
+    #theme-dark:checked ~ #profileArea .card .subjects,
+    #theme-dark:checked ~ #profileArea .card .research {
+        background-color: #333;
+    }
+
+    .card {
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    .card img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto 15px auto;
+        border: 3px solid #1a3d7c;
+        object-fit: cover;
+    }
+    .card h2 {
+        text-align: center;
+        margin: 5px 0 15px 0;
+    }
+    .card p {
+        margin: 8px 0;
+        line-height: 1.5;
+    }
+    .qualification, .subjects, .research {
+        background-color: #eef2fa;
+        padding: 8px 12px;
+        border-radius: 4px;
+        margin-top: 10px;
+        transition: background-color 0.4s ease;
+    }
+    .subjects ul, .research ul {
+        margin: 5px 0 0 20px;
+        padding: 0;
+    }
+    .not-found {
+        max-width: 500px;
+        margin: 0 auto;
+        text-align: center;
+        color: #a00;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+
+<h1>CST Department Faculty Profiles &mdash; IIEST</h1>
+
+<input type="radio" id="theme-light" name="theme" class="theme-radio" checked>
+<input type="radio" id="theme-dark" name="theme" class="theme-radio">
+<div class="theme-picker">
+    <label for="theme-light">Light</label>
+    <label for="theme-dark">Dark</label>
+</div>
+
+<div class="search-box">
+    <input type="text" id="facultyName" placeholder="Enter faculty name (e.g. Asit Kumar Das)" onkeyup="if(event.key === 'Enter') showProfile()">
+    <button onclick="showProfile()">Search</button>
+</div>
+
+<div id="profileArea"></div>
+
+<p style="text-align:center; color:#666; font-size:13px; margin-top: 20px;">
+    Try searching: <i>Abhik Mukherjee, Asit Kumar Das, Jaya Sil, Nirnay Ghosh, Saptarshi Ghosh</i>
+</p>
+
+<script src="faculty-data.js"></script>
+<script src="faculty-app.js"></script>
+
+</body>
+</html>
